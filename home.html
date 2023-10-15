@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    }
+    nav li {
+    margin: 0 10px;
+    cursor: pointer;
+    }
+    nav li:hover {
+    text-decoration: underline;
+    }
+    .sur{
+        height:70vh;
+        width: 100vw;
+    }
+    body{
+        background-color: #111;
+        color: white;
+    }
+    header {
+    background-color: #111;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .img{
+        height: 40px;
+        margin-top:10px;
+    }
+    .logo{
+        font-size: 30px;
+    }
+    .row_poster {
+    width: 110%;
+    object-fit: contain;
+    max-height: 200px;
+    margin-right: 10px;
+    transition: transform 300ms;
+    }
+
+    .row_posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+    }
+
+    .row_poster:hover{
+    transform: scale(1.08);
+    }
+
+    .row_posters::-webkit-scrollbar{
+    display: none;
+    }
+
+    .row_posterlarge{
+    max-height: 200px;
+    }
+    .row_posterlarge:hover{
+    transform: scale(1.10);
+    }
+
+
+    .row{
+    color: white;
+    margin-left: 20px;
+    }
+    .but:hover{
+        transform: scale(1.20);
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+    <div class="logo">
+        NETFLIX <img class="img" src="data:image/png;base64,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" alt="">
+    </div>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Login</li>
+            <li>Sign up</li>
+        </ul>
+    </nav>
+    </header>
+    <main>
+    <section class="pav">
+        <div >
+            <img class="sur" src="https://m.media-amazon.com/images/S/pv-target-images/1470c48e41e31c81fd7d8fa5c7e3ace3dd237898eafa60137fe611babd27ad50.jpg" alt="">
+            <button class="but">play</button>
+        </div>
+        </section>
+    <section class="content">
+       
+
+    </section>
+    </main>
+    <div class="row">
+        <h2>TRENDING NOW</h2>
+
+        <div class="row_posters">
+            <img src="https://m.media-amazon.com/images/M/MV5BYWZmM2UyOTEtMGJjZC00ODYyLWJmYzgtYmU0Nzk0MDA5NjM2XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg" alt="" class="row_poster row_posterlarge">
+            <img src="https://cdn.bollywoodmdb.com/fit-in/movies/largethumb/2022/omg-2/poster.jpg" alt="" class="row_poster row_posterlarge">
+            <img src="https://bingeddata.s3.amazonaws.com/uploads/2023/08/bro-scaled.jpg" alt="" class="row_poster row_posterlarge">
+            <img src="https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABSRICJy99uxvKQumSKv6J2Evdd33TDoK5tlfoQMwocYSN8QHqeeQyTpHCPi33DpnaOLedm0bBH7nVPJpoa8qfmFvpN-u.jpg" alt="" class="row_poster row_posterlarge">
+            <img src="https://www.cinejosh.com/newsimg/newsmainimg/mega-mass-blockbuster-waltair-veerayya-streaming-now-on-netflix_b_2702230930.jpg" alt="" class="row_poster row_posterlarge">
+            <img src="https://occ-0-1723-1722.1.nflxso.net/dnm/api/v6/XsrytRUxks8BtTRf9HNlZkW2tvY/AAAABRM42zv40cPq3yaCkR1Ph52cni-BtmFh6XdAhF0-vsi52hy1W3gjKehGfBZpLLmhWV9mrJoJ4-Knljhs7sVAh9WJFgow.jpg" alt="" class="row_poster row_posterlarge">
+            <img src="https://assets-prd.ignimgs.com/2022/07/11/rrr-button-ver-1657577923010.jpg" alt="" class="row_poster row_posterlarge">
+            <img src="https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/15/f6a2b6a206f78feb6b0212f26b0882cd_original.jpg?t=1687346662" alt="" class="row_poster row_posterlarge">
+            <img src="https://m.media-amazon.com/images/M/MV5BMjQ1MjFkN2EtOTU4NS00NDkzLThhNzItODkzYWNjZDMxZjE0XkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_.jpg" alt="" class="row_poster row_posterlarge">
+        </div>
+        <div class="row">
+            <h2>TOP RATED TELUGU</h2>
+    
+            <div class="row_posters">
+                <img src="https://m.media-amazon.com/images/M/MV5BZWQzNDdmN2UtZTc5ZC00M2EzLWE2ZTUtMjVhNzJmOGQ5YzkwXkEyXkFqcGdeQXVyMzA0NTI2OTM@._V1_.jpg" alt="" class="row_poster row_posterlarge">
+                <img src="https://a10.gaanacdn.com/images/albums/38/4748338/crop_480x480_4748338.jpg" alt="" class="row_poster row_posterlarge">
+                <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/tegimpu-et00349411-1672999823.jpg" alt="" class="row_poster row_posterlarge">
+                <img src="https://img1.hotstarext.com/image/upload/f_auto,t_vl/sources/r1/cms/prod/6439/776439-v" alt="" class="row_poster row_posterlarge">
+                <img src="https://assets-prd.ignimgs.com/2022/07/11/rrr-button-ver-1657577923010.jpg" alt="" class="row_poster row_posterlarge">
+                <img src="https://bingeddata.s3.amazonaws.com/uploads/2023/08/bro-scaled.jpg" alt="" class="row_poster row_posterlarge">
+                <img src="https://m.media-amazon.com/images/M/MV5BZmVhYTVmMWUtMWI4OS00NzVkLWE3ZGQtNzMwZWQxZDFjZTY1XkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg" alt="" class="row_poster row_posterlarge">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/3b6ae28b92514bca96ea2105769eab125f93a7fdba9b78d3723dd6f9c3e7523a.jpg" alt="" class="row_poster row_posterlarge">
+                <img src="https://www.filmibeat.com/img/popcorn/movie_posters/major-20201217100549-18060.jpg" alt="" class="row_poster row_posterlarge">
+                <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/sir-et00340527-1663587263.jpg" alt="" class="row_poster row_posterlarge">
+            </div>
+    
+     </div>
+    </div>
+</body>
+</html>
